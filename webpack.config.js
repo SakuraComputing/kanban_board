@@ -13,7 +13,7 @@ const config = {
     'webpack-dev-server/client?http://localhost:8080',
     'webpack/hot/only-dev-server',
     './main.js',
-    './assets/scss/main.scss',
+    // './assets/scss/main.scss',
   ],
 
   output: {
@@ -52,19 +52,11 @@ const config = {
       {
         test: /\.scss$/,
         exclude: /node_modules/,
-        use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
+        use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'sass-loader',
-              query: {
-                sourceMap: false,
-              },
-            },
-          ],
+          use: ['css-loader','sass-loader'],
           publicPath: '../'
-        })),
+        }),
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -133,14 +125,15 @@ const config = {
   },
 
   plugins: [
-    new webpack.LoaderOptionsPlugin({
-      test: /\.jsx?$/,
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({ filename: './styles/styles.css', disable: false, allChunks: true }),
-    new CopyWebpackPlugin([{ from: 'vendors', to: 'vendors' }]),
-    new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
-    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin('styles.css')
+    // new webpack.LoaderOptionsPlugin({
+    //   test: /\.jsx?$/,
+    // }),
+    // new webpack.optimize.ModuleConcatenationPlugin(),
+    // new ExtractTextPlugin({ filename: 'styles.css', disable: false, allChunks: true }),
+    // new CopyWebpackPlugin([{ from: 'vendors', to: 'vendors' }]),
+    // new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
+    // new webpack.HotModuleReplacementPlugin(),
   ],
 };
 

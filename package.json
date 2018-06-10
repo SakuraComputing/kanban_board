@@ -1,20 +1,17 @@
 {
-  "name": "react-webpack-boilerplate",
-  "version": "2.1.0",
-  "description": "Minimalistic ES6 React boilerplate",
+  "name": "kanban_board",
+  "version": "1.0.0",
+  "description": "Kan Board Application",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot",
+    "start": "webpack-dev-server --hot --devtool eval-cheap-module-source-map",
     "clean": "rimraf dist",
     "production": "cross-env npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
-    "lint": "eslint ./app/**/**.js",
     "test": "jest",
     "test:watch": "jest --watch",
-    "coverage": "jest --coverage",
-    "precommit": "cross-env npm run lint && npm test",
-    "prepush": "cross-env npm run lint && npm test"
+    "coverage": "jest --coverage"
   },
-  "author": "Kliment Petrov <kleopetroff@gmail.com>",
+  "author": "Ewan Bauld",
   "license": "MIT",
   "jest": {
     "setupFiles": [
@@ -25,8 +22,7 @@
       "app/**/*.{js,jsx,ts,tsx}"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/assetsTransformer.js",
-      "\\.(css|less)$": "<rootDir>/config/jest/assetsTransformer.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/assetsTransformer.js"
     },
     "testMatch": [
       "**/?(*.)(spec|test).js?(x)"
@@ -70,7 +66,6 @@
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.10",
     "html-webpack-plugin": "3.2.0",
-    "husky": "0.15.0-rc.2",
     "jest": "22.1.0",
     "node-sass": "4.9.0",
     "open-browser-webpack-plugin": "0.0.5",
