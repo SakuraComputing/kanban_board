@@ -16,8 +16,8 @@ describe('App Component', () => {
   it('should exist', () => {
     expect(wrapper).toBeTruthy();
   });
-  
-  it('should have one heading', () => {
-    expect(wrapper.find('#heading').type()).toEqual('h2');
+
+  it('should render the form correctly', () => {
+    expect(wrapper).toMatchSnapshot();
   });
 });

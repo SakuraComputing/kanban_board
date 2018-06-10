@@ -30,7 +30,7 @@ const config = {
     historyApiFallback: true,
     publicPath: '/'
   },
-  
+
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -40,8 +40,7 @@ const config = {
       {
         enforce: "pre",
         test: /\.jsx?$/,
-        exclude: /node_modules/,
-        loader: "eslint-loader"
+        exclude: /node_modules/
       },
       {
         test: /\.jsx?$/,
@@ -136,15 +135,9 @@ const config = {
   plugins: [
     new webpack.LoaderOptionsPlugin({
       test: /\.jsx?$/,
-      options: {
-        eslint: {
-          configFile: resolve(__dirname, '.eslintrc'),
-          cache: false,
-        }
-      },
     }),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new ExtractTextPlugin({ filename: './styles/style.css', disable: false, allChunks: true }),
+    new ExtractTextPlugin({ filename: './styles/styles.css', disable: false, allChunks: true }),
     new CopyWebpackPlugin([{ from: 'vendors', to: 'vendors' }]),
     new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
     new webpack.HotModuleReplacementPlugin(),
