@@ -1,4 +1,5 @@
 import React from 'react';
+import Note from './Note';
 import '../../styles/styles.scss';
 
 export class App extends React.Component {
@@ -41,8 +42,11 @@ export class App extends React.Component {
     return (
       <div>
         <button onClick={this.addNote}>Add a new note</button>
-        <ul>{notes.map(note => <li key={note.id}>{note.task}</li>)}
-        </ul>
+        <ul>{notes.map(note =>
+          <li id={note.id}>
+            <Note task={note.task} />
+          </li>
+        )}</ul>
       </div>
     );
   }
