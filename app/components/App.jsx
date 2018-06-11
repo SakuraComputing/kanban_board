@@ -51,6 +51,15 @@ export class App extends React.Component {
     this.setState({notes});
   };
 
+  deleteNote = (id, e) => {
+    // Avoid Bubbling to edit
+    e.stopPropagation();
+
+    this.setState({
+      notes: this.state.notes.filter(note => note.id !== id)
+    });
+  };
+
   render() {
 
     const notes = this.state.notes;
@@ -58,7 +67,10 @@ export class App extends React.Component {
     return (
       <div>
         <button onClick={this.addNote}>Add a new note</button>
-        <Notes notes={notes} onEdit={this.editNote}/>
+        <Notes notes={notes}
+               onEdit={this.editNote}
+               onDelete={this.deleteNote}
+        />
       </div>
     );
   }
