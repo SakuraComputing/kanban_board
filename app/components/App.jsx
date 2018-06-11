@@ -35,10 +35,13 @@ export class App extends React.Component {
   };
 
   render() {
+
+    const notes = this.state.notes;
+
     return (
       <div>
         <button onClick={this.addNote}>Add a new note</button>
-        <ul>{this.state.notes.map(note => <li key={note.id}>{note.task}</li>)}
+        <ul>{notes.map(note => <li key={note.id}>{note.task}</li>)}
         </ul>
       </div>
     );
