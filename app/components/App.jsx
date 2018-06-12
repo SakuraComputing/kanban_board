@@ -1,38 +1,35 @@
 import React from 'react';
 import Notes from './Notes';
+
 import '../../styles/styles.scss';
+import NoteActions from '../actions/NoteActions';
+import NoteStore from '../stores/NoteStore';
 
 export class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.addNote = this.addNote.bind(this);
 
-    this.state = {
-      notes: [
-        {
-          id: 1,
-          task: 'Learn Webpack',
-        },
-        {
-          id: 2,
-          task: 'Learn React',
-        },
-        {
-          id: 3,
-          task: 'Do Laundary',
-        },
-      ],
-    };
+      this.state = NoteStore.getState();
   }
 
+
+  componentDidMount() {
+    NoteStore.listen(this.storeChanged)
+  }
+
+
+  componentWillUnmount() {
+    NoteStore.unlisten(this.storeChanged)
+  }
+
+  storeChanged = (state) => {
+    this.setState(state);
+  };
+
+
   addNote = () => {
-    this.setState({
-      notes: this.state.notes.concat([{
-        id: 4,
-        task: 'New Task'
-      }])
-    })
+    NoteActions.create({task: 'New Task'})
   };
 
   editNote = (id, task) => {
@@ -40,24 +37,14 @@ export class App extends React.Component {
     if(!task.trim()){
       return;
     }
-
-    const notes = this.state.notes.map(note => {
-      if(note.id === id && task) {
-        note.task = task;
-      }
-
-      return note;
-    });
-    this.setState({notes});
+    NoteActions.update({id, task})
   };
 
   deleteNote = (id, e) => {
     // Avoid Bubbling to edit
     e.stopPropagation();
 
-    this.setState({
-      notes: this.state.notes.filter(note => note.id !== id)
-    });
+    NoteActions.delete(id);
   };
 
   render() {
