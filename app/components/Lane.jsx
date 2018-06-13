@@ -3,9 +3,17 @@ import AltContainer from 'alt-container';
 import Notes from './Notes';
 import NoteActions from '../actions/NoteActions';
 import NoteStore from '../stores/NoteStore';
+import LaneActions from '../actions/LaneActions';
 
 
-class Lane extends Component {
+export default class Lane extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.addNote = this.addNote.bind(this);
+  }
+
 
   editNote(id, task) {
     if(!task.trim()) {
@@ -14,15 +22,29 @@ class Lane extends Component {
     NoteActions.update({id, task});
   }
 
-  addNote() {
-    NoteActions.create({task: 'new task'});
-  }
 
-  deleteNote(id, e) {
+  // Arrow function would not work here
+  addNote(e) {
+
     e.stopPropagation();
 
-    NoteActions.delete(id);
-  }
+    const laneId = this.props.lane.id;
+    const note = NoteActions.create({ task: 'New task'});
+
+    LaneActions.attachToLane({
+      noteId: note.id,
+      laneId
+    })
+  };
+
+  deleteNote = (noteId, e) => {
+    e.stopPropagation();
+
+    const laneId = this.props.lane.id;
+
+    LaneActions.detachFromLane({laneId, noteId});
+    NoteActions.delete(noteId);
+  };
 
   render() {
 
@@ -39,7 +61,7 @@ class Lane extends Component {
         <AltContainer
           stores={[NoteStore]}
           inject={{
-            notes: () => NoteStore.getState().notes || []
+            notes: () => NoteStore.getNotesByIds(lane.notes)
           }}
         >
         <Notes onEdit={this.editNote} onDelete={this.deleteNote} />
@@ -48,7 +70,3 @@ class Lane extends Component {
     );
   }
 }
-
-
-
-export default Lane;
