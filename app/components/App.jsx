@@ -1,10 +1,13 @@
 import React from 'react';
 import AltContainer from 'alt-container';
+import {DragDropContext} from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import Lanes from './Lanes';
 import LaneActions from '../actions/LaneActions';
 import LaneStore from '../stores/LaneStore';
 
 import '../../styles/styles.scss';
+
 
 export class App extends React.Component {
 
@@ -31,5 +34,5 @@ export class App extends React.Component {
   }
 
 }
-export default App;
+export default DragDropContext(HTML5Backend)(App);
 
