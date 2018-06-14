@@ -61,11 +61,13 @@ export default class Note extends React.Component {
 
   render() {
 
-    if(this.state.editing) {
-      return this.renderEdit();
-    }
-    //
-    return this.renderNote();
+    return <li {...this.props}>{this.props.children}</li>
+
+    // if(this.state.editing) {
+    //   return this.renderEdit();
+    // }
+    // //
+    // return this.renderNote();
   }
 
 };
