@@ -17,8 +17,8 @@
 
   padding: 1em;
 
-  color: $off-white;
-  background-color: $hex-gray;
+  color: $light-gray;
+  background-color: $black;
 
   border-top-left-radius: 0.5em;
   border-top-right-radius: 0.5em;
@@ -59,7 +59,7 @@
 
   cursor: pointer;
   color: white;
-  background-color: rgba(0,0,0,0) ;
+  background-color: rgba(0,0,0,0);
   border: 0;
 }
 

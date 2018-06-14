@@ -7,7 +7,7 @@ import LaneActions from '../actions/LaneActions';
 import Editable from './Editable';
 
 
-export default class Lane extends Component {
+class Lane extends Component {
 
   constructor(props) {
     super(props);
@@ -104,13 +104,24 @@ export default class Lane extends Component {
             notes: () => NoteStore.getNotesByIds(lane.notes)
           }}
         >
-        <Notes
-          onValueClick={this.activateNoteEdit}
-          onEdit={this.editNote}
-          onDelete={this.deleteNote}
-        />
+          <Notes
+            onValueClick={this.activateNoteEdit}
+            onEdit={this.editNote}
+            onDelete={this.deleteNote}
+          />
         </AltContainer>
       </div>
     );
   }
 }
+
+Lane.Header = class LaneHeader extends React.Component {
+
+};
+
+
+Lane.Notes = class LaneNotes extends React.Component {
+
+};
+
+export default Lane;
