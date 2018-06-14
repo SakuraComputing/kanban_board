@@ -8,7 +8,7 @@ import LaneStore from '../stores/LaneStore';
 
 import '../../styles/styles.scss';
 
-
+@DragDropContext(HTML5Backend)
 export class App extends React.Component {
 
   addLane() {
@@ -34,5 +34,5 @@ export class App extends React.Component {
   }
 
 }
-export default DragDropContext(HTML5Backend)(App);
+export default (App);
 
