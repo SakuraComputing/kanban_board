@@ -14,14 +14,17 @@ export default class Lane extends Component {
 
     this.addNote = this.addNote.bind(this);
     this.editName = this.editName.bind(this);
+    // this.activateLaneEdit = this.activateLaneEdit.bind(this);
   }
 
 
   editNote(id, task) {
     if(!task.trim()) {
-      return
+      NoteActions.update({id, editing: false});
+
+      return;
     }
-    NoteActions.update({id, task});
+    NoteActions.update({id, task, editing: false});
   }
 
 
@@ -39,6 +42,18 @@ export default class Lane extends Component {
     })
   };
 
+  editName = (name) => {
+    const laneId = this.props.lane.id;
+
+    if(!name.trim()) {
+      LaneActions.update({id: laneId, name ,editing: false});
+
+      return;
+    }
+
+    LaneActions.update({id: laneId, name, editing: false});
+  };
+
   deleteNote = (noteId, e) => {
     e.stopPropagation();
 
@@ -48,29 +63,21 @@ export default class Lane extends Component {
     NoteActions.delete(noteId);
   };
 
-  editName(name) {
-    const laneId = this.props.lane.id;
-
-    console.log(`edit lane ${laneId} name using ${name}`)
-  };
 
   deleteLane = () => {
     const laneId = this.props.lane.id;
 
-    console.log(`delete lane ${laneId}`)
+    LaneActions.delete(laneId);
   };
-
   activateLaneEdit = () => {
     const laneId = this.props.lane.id;
 
-    console.log(`activate lane ${laneId} edit`)
+    LaneActions.update({id: laneId, editing: true});
   };
 
-  activateNoteEdit = (id) => {
-
-    console.log(`activate note ${id} edit`)
-
-  };
+  activateNoteEdit(id) {
+    NoteActions.update({id, editing: true})
+  }
 
   render() {
 
