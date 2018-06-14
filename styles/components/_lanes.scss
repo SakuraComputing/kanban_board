@@ -1,0 +1,67 @@
+.lane {
+  display: inline-block;
+
+  margin: 1em;
+
+  background-color: $off-white;
+  border: 1px solid $hex-gray;
+  border-right: 0.5em;
+
+  min-width: 10em;
+  vertical-align: top;
+
+}
+
+.lane-header {
+  overflow: auto;
+
+  padding: 1em;
+
+  color: $off-white;
+  background-color: $hex-gray;
+
+  border-top-left-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.lane-name {
+  float: left;
+}
+
+.lane-add-note {
+  float: left;
+
+  margin-right: 0.5em;
+}
+
+.lane-delete {
+  float: right;
+
+  margin-left: 0.5em;
+
+  visibility: hidden;
+}
+
+.lane-header:hover .lane-delete {
+  visibility: visible;
+}
+
+.add-lane, .lane-add-note button {
+  cursor: pointer;
+
+  background-color: $off-white;
+  border: 1px solid $hex-gray;
+
+}
+
+.lane-delete {
+  padding: 0;
+
+  cursor: pointer;
+  color: white;
+  background-color: rgba(0,0,0,0) ;
+  border: 0;
+}
+
+
+
