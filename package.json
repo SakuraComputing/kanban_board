@@ -18,6 +18,10 @@
       "raf/polyfill",
       "<rootDir>/config/jest/shim.js"
     ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/styles/"
+    ],
     "collectCoverageFrom": [
       "app/**/*.{js,jsx,ts,tsx}"
     ],
@@ -28,7 +32,7 @@
       "**/?(*.)(spec|test).js?(x)"
     ],
     "transform": {
-      "\\.js$": "babel-jest"
+      "^.+\\.jsx?$": "babel-jest"
     }
   },
   "dependencies": {

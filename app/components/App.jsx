@@ -6,7 +6,6 @@ import Lanes from './Lanes';
 import LaneActions from '../actions/LaneActions';
 import LaneStore from '../stores/LaneStore';
 
-import '../../styles/styles.scss';
 
 @DragDropContext(HTML5Backend)
 export default class App extends React.Component {

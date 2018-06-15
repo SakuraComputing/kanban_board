@@ -4,6 +4,7 @@ import App from './components/App';
 import alt from './libs/alt';
 import storage from './libs/storage';
 import persist from './libs/persist';
+import '../styles/styles.scss';
 
 main();
 
