@@ -12,6 +12,10 @@
   "plugins": [
     "react-hot-loader/babel",
     "transform-class-properties",
-    "transform-object-rest-spread"
+    "transform-object-rest-spread",
+    "syntax-decorators",
+    "array-includes",
+    "transform-decorators-legacy",
+    "transform-object-assign"
   ]
 }

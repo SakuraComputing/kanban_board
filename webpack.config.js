@@ -134,6 +134,16 @@ const config = {
     // new CopyWebpackPlugin([{ from: 'vendors', to: 'vendors' }]),
     // new OpenBrowserPlugin({ url: 'http://localhost:8080' }),
     // new webpack.HotModuleReplacementPlugin(),
+    // require('babel-plugin-array-includes').default,
+    //
+    // require('babel-plugin-syntax-class-properties'),
+    // require('babel-plugin-syntax-decorators'),
+    // require('babel-plugin-syntax-object-rest-spread'),
+    //
+    // require('babel-plugin-transform-class-properties'),
+    // require('babel-plugin-transform-decorators-legacy').default,
+    // require('babel-plugin-transform-object-assign'),
+    // require('babel-plugin-transform-object-rest-spread')
   ],
 };
 

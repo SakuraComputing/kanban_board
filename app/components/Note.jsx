@@ -19,7 +19,7 @@ export default class Note extends React.Component {
 
     console.log(this.props);
 
-    return <div>wibble</div>
+    // return <div>wibble</div>
     console.log(props.children);
     return connectDragSource(
       <li {...props}>{props.children}</li>
