@@ -10,11 +10,16 @@ import Editable from './Editable';
 
 const noteTarget = {
   hover(targetProps, monitor) {
-    const targetId = targetProps.lane.id;
     const sourceProps = monitor.getItem();
     const sourceId = sourceProps.id;
 
-    console.log(`source: ${sourceId}, target: ${targetId}`);
+
+    if(!targetProps.lane.notes.length) {
+      LaneActions.attachToLane({
+        laneId: targetProps.lane.id,
+        noteId: sourceId
+      })
+    }
   }
 };
 

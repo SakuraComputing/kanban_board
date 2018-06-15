@@ -38,18 +38,51 @@ class LaneStore {
   }
 
   attachToLane({laneId, noteId}) {
-    const lanes = this.lanes.map(lane => {
-      if(lane.id === laneId) {
-        if(lane.notes.includes(noteId)) {
-          console.warn('Already attached note to lane', lanes);
-        } else {
-          lane.notes.push(noteId);
-        }
-      }
-      return lane;
-    });
-    this.setState({lanes});
+    if(!noteId) {
+      this.waitFor(NoteStore);
+
+      noteId = NoteStore.getState().notes.slice(-1)[0].id;
+    }
+
+    const lanes = this.lanes;
+    const targetId = this.findLane(laneId);
+
+    if(targetId < 0) {
+      return;
+    }
+
+    this.removeNote(noteId);
+
+    const lane = lanes[targetId];
+
+    if(lane.notes.indexOf(noteId) === -1) {
+      lane.notes.push(noteId);
+
+      this.setState({lanes});
+    }
+    else {
+      console.warn('Already attached note to lane', lanes);
+    }
   }
+
+  removeNote(noteId) {
+    const lanes = this.lanes;
+    const removeLane = lanes.filter((lane) => {
+      return lane.notes.indexOf(noteId) >= 0;
+    })[0];
+
+    if(!removeLane) {
+      return;
+    }
+
+    const removeNoteIndex = removeLane.notes.indexOf(noteId);
+
+    removeLane.notes = removeLane.notes.slice(0, removeNoteIndex).
+    concat(removeLane.notes.slice(removeNoteIndex + 1));
+  }
+
+
+
   detachFromLane({laneId, noteId}) {
     const lanes = this.lanes.map(lane => {
       if(lane.id === laneId) {
@@ -61,6 +94,18 @@ class LaneStore {
 
     this.setState({lanes})
   }
+
+  findLane(id) {
+    const lanes = this.lanes;
+    const laneIndex = lanes.findIndex((lane) => lane.id === id);
+
+    if(laneIndex < 0) {
+      console.warn('Failed to find lane', lanes, id);
+    }
+
+    return laneIndex;
+  }
+
 
   move({sourceId, targetId}) {
     const lanes = this.lanes;
