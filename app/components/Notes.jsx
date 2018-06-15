@@ -1,14 +1,13 @@
 import React from 'react';
 import Editable from './Editable';
 import Note from './Note';
+import LaneActions from '../actions/LaneActions';
 
 export default ({notes, onValueClick, onEdit, onDelete}) => {
   return (
     <ul className="notes">{notes.map(note =>
       <Note className="note" id={note.id} key={note.id}
-            onMove={({sourceId, targetId}) =>
-              console.log(`source: ${sourceId}, target: ${targetId}`)
-            }
+            onMove={LaneActions.move}
       >
         <Editable
           editing={note.editing}
@@ -17,6 +16,7 @@ export default ({notes, onValueClick, onEdit, onDelete}) => {
           onEdit={onEdit.bind(null, note.id)}
           onDelete={onDelete.bind(null, note.id)}
         />
-      </Note>    )}</ul>
+      </Note>
+    )}</ul>
   );
 }
