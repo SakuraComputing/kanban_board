@@ -5,7 +5,7 @@ import Note from './Note';
 export default ({notes, onValueClick, onEdit, onDelete}) => {
   return (
     <ul className="notes">{notes.map(note =>
-      <Note className="note" key={note.id}>
+      <Note className="note" id={note.id} key={note.id}>
           <Editable
               editing={note.editing}
               value={note.task}

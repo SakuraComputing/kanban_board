@@ -2,7 +2,7 @@
   "name": "kanban_board",
   "version": "1.0.0",
   "description": "Kan Board Application",
-  "main": "index.js",
+  "main": "index.jsx",
   "scripts": {
     "start": "webpack-dev-server --hot --devtool eval-cheap-module-source-map",
     "clean": "rimraf dist",

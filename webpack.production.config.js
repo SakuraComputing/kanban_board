@@ -8,7 +8,7 @@ const config = {
   devtool: 'cheap-module-source-map',
 
   entry: [
-    './main.js',
+    './index.jsx',
     './assets/scss/main.scss',
   ],
 

@@ -9,7 +9,7 @@ import LaneStore from '../stores/LaneStore';
 import '../../styles/styles.scss';
 
 @DragDropContext(HTML5Backend)
-export class App extends React.Component {
+export default class App extends React.Component {
 
   addLane() {
     LaneActions.create({name: 'New Lane'});
@@ -32,7 +32,6 @@ export class App extends React.Component {
       </div>
     );
   }
-
 }
-export default (App);
+
 

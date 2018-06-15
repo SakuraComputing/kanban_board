@@ -5,7 +5,16 @@ import alt from './libs/alt';
 import storage from './libs/storage';
 import persist from './libs/persist';
 
+main();
 
-persist(alt, storage, 'app');
+function main() {
+  persist(alt, storage, 'app');
+  const app = document.createElement('div');
 
-ReactDOM.render(<App />, document.getElementById('app'));
+
+  document.body.appendChild(app);
+
+  ReactDOM.render(<App />, app);
+
+}
+
