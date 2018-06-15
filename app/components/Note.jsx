@@ -16,11 +16,6 @@ const noteSource = {
 export default class Note extends React.Component {
   render() {
     const { connectDragSource, id, onMove, ...props} = this.props;
-
-    console.log(this.props);
-
-    // return <div>wibble</div>
-    console.log(props.children);
     return connectDragSource(
       <li {...props}>{props.children}</li>
     );
