@@ -1,7 +1,7 @@
 import uuidv4 from 'uuid/v4';
 import alt from '../libs/alt';
 import LaneActions from '../actions/LaneActions';
-import update from 'react-addons-update';
+import update from 'immutability-helper';
 
 class LaneStore {
   constructor() {
