@@ -32,6 +32,6 @@ describe('Editable Component', () => {
   });
 
   it('should render the form correctly', () => {
-    // expect(wrapper).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 });
