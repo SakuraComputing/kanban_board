@@ -16,7 +16,8 @@
   "jest": {
     "setupFiles": [
       "raf/polyfill",
-      "<rootDir>/config/jest/shim.js"
+      "<rootDir>/config/jest/shim.js",
+      "<rootDir>/config/jest/setupTests.js"
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/node_modules/",
