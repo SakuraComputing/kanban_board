@@ -46,4 +46,8 @@ describe('NoteStore', () => {
     expect(notes.length).toBe(1);
     expect(notes[0].task).toEqual(task);
   });
+  it('should return null if no no Ids passed in', () => {
+    const notes = NoteStore.getNotesByIds();
+    expect(notes.length).toBe(0);
+  });
 });
