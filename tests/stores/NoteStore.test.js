@@ -26,6 +26,14 @@ describe('NoteStore', () => {
     const state = NoteStore.getState();
     expect(state.notes[0].task).toEqual(updatedTask);
   });
+  it('should return the current note if the id does not exist', () => {
+    const updatedTask = 'test 2';
+    const noteId = "uidd99";
+    const note = NoteStore.getState().notes[0];
+    NoteActions.update({...note, id: noteId, task: updatedTask  });
+    const state = NoteStore.getState();
+    expect(state.notes[0].task).toEqual(task);
+  });
   it('should delete notes', () => {
     const note = NoteStore.getState().notes[0];
     NoteActions.delete(note.id);
