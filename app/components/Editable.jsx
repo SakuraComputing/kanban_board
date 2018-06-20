@@ -29,12 +29,6 @@ export default class Editable extends React.Component {
     return <button className="delete" onClick={this.props.onDelete}>x</button>
   };
 
-  edit = () => {
-    this.setState({
-      editing: true
-    })
-  };
-
   checkEnter = (e) => {
     if(e.key === 'Enter') {
       this.finishEdit(e);
@@ -42,6 +36,8 @@ export default class Editable extends React.Component {
   };
 
   finishEdit = (e) => {
+
+    console.log("When does this fire?");
     const value = e.target.value;
     if(this.props.onEdit) {
       this.props.onEdit(value);
