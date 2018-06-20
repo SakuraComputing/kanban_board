@@ -18,6 +18,7 @@ export default ({notes, onValueClick, onEdit, onDelete}) => {
           onDelete={onDelete.bind(null, note.id)}
         />
       </Note>
-    )}</ul>
+    )}
+    </ul>
   );
 }

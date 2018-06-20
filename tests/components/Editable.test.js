@@ -8,7 +8,7 @@ import Editable from '../../app/components/Editable';
 describe('Editable Component', () => {
   let wrapper, editing, value, onValueClick,
     onEdit, onDelete, defaultValue, renderDelete,
-    deleteButton;
+    deleteButton, ref;
 
 
   beforeEach(() => {
@@ -20,6 +20,7 @@ describe('Editable Component', () => {
     onDelete = jest.fn();
     defaultValue = jest.fn();
     renderDelete = jest.fn();
+    ref = jest.fn();
 
     wrapper = shallow(<Editable
       editing={editing}
@@ -27,6 +28,7 @@ describe('Editable Component', () => {
       onValueClick={onValueClick}
       onEdit={onEdit}
       onDelete={onDelete}
+      ref={ref}
     />);
     deleteButton = <button className="delete" onClick={onDelete}>x</button>;
   });

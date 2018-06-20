@@ -3,10 +3,18 @@ import {shallow} from "enzyme/build/index";
 import Note from '../../app/components/Note';
 
 describe('Note Component', () => {
-    let wrapper;
+    let wrapper, notes, onValueClick, onEdit, onDelete;
 
     beforeEach(() => {
-        wrapper = shallow(<Note />);
+        notes = {
+            id: 1,
+            editing: true,
+            task: 'wibble'
+        };
+        onValueClick = jest.fn();
+        onEdit = jest.fn();
+        onDelete = jest.fn();
+        wrapper = shallow(<Note notes={notes} onValueClick={onValueClick} onEdit={onEdit} onDelete={onDelete}/>);
     });
 
     it('should exist', () => {

@@ -28,27 +28,18 @@ const noteTarget = {
 }))
 export default class Lane extends Component {
 
-  constructor(props) {
-    super(props);
-
-    this.addNote = this.addNote.bind(this);
-    this.editName = this.editName.bind(this);
-    // this.activateLaneEdit = this.activateLaneEdit.bind(this);
-  }
-
-
-  editNote(id, task) {
+  editNote = (id, task) => {
     if(!task.trim()) {
       NoteActions.update({id, editing: false});
 
       return;
     }
     NoteActions.update({id, task, editing: false});
-  }
+  };
 
 
   // Arrow function would not work here
-  addNote(e) {
+  addNote = (e) =>  {
 
     e.stopPropagation();
 

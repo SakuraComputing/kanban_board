@@ -4,7 +4,18 @@ exports[`Note Component should render the form correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DragSource(DropTarget(Note)) />,
+  Symbol(enzyme.__unrendered__): <DragSource(DropTarget(Note))
+    notes={
+      Object {
+        "editing": true,
+        "id": 1,
+        "task": "wibble",
+      }
+    }
+    onDelete={[MockFunction]}
+    onEdit={[MockFunction]}
+    onValueClick={[MockFunction]}
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
