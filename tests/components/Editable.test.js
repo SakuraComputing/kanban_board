@@ -6,7 +6,9 @@ import Editable from '../../app/components/Editable';
 
 
 describe('Editable Component', () => {
-  let wrapper, editing, value, onValueClick, onEdit, onDelete, defaultValue;
+  let wrapper, editing, value, onValueClick,
+    onEdit, onDelete, defaultValue, renderDelete,
+    deleteButton;
 
 
   beforeEach(() => {
@@ -17,6 +19,7 @@ describe('Editable Component', () => {
     onEdit = jest.fn();
     onDelete = jest.fn();
     defaultValue = jest.fn();
+    renderDelete = jest.fn();
 
     wrapper = shallow(<Editable
       editing={editing}
@@ -25,6 +28,7 @@ describe('Editable Component', () => {
       onEdit={onEdit}
       onDelete={onDelete}
     />);
+    deleteButton = <button className="delete" onClick={onDelete}>x</button>;
   });
 
   it('should exist', () => {
@@ -48,7 +52,14 @@ describe('Editable Component', () => {
   });
   it('should display delete button when renderDelete is called', () => {
     const returnDelButton = wrapper.instance().renderDelete();
-    const test = <button className="delete" onClick={onDelete}>x</button>;
-    expect(returnDelButton).toEqual(test);
-  })
+    expect(returnDelButton).toEqual(deleteButton);
+  });
+  it('should render value when renderValue is called', () => {
+    const retValue = wrapper.instance().renderValue();
+    const test = <div onClick={onValueClick}>
+      <span className="value">{defaultValue}</span>
+      {deleteButton}
+    </div>;
+    expect(toJSON(retValue)).toEqual(toJSON(test));
+  });
 });
