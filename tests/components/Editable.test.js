@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJSON from 'enzyme-to-json';
 
 import Editable from '../../app/components/Editable';
 
 
 describe('Editable Component', () => {
-  let wrapper, editing, value, onValueClick, onEdit, onDelete;
+  let wrapper, editing, value, onValueClick, onEdit, onDelete, defaultValue;
 
 
   beforeEach(() => {
@@ -15,7 +16,7 @@ describe('Editable Component', () => {
     onValueClick =  jest.fn();
     onEdit = jest.fn();
     onDelete = jest.fn();
-
+    defaultValue = jest.fn();
 
     wrapper = shallow(<Editable
       editing={editing}
@@ -23,7 +24,6 @@ describe('Editable Component', () => {
       onValueClick={onValueClick}
       onEdit={onEdit}
       onDelete={onDelete}
-
     />);
   });
 
@@ -33,5 +33,17 @@ describe('Editable Component', () => {
 
   it('should render the form correctly', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+  it('should return input on renderEdit', () => {
+    const anonymous = () => ({ baz: foo2, boz: 1 });
+    const returnInput = wrapper.instance().renderEdit();
+    const test = <input
+      autoFocus={true}
+      defaultValue={defaultValue}
+      onBlur={anonymous}
+      onKeyPress={anonymous}
+      type="text"
+    />;
+    expect(toJSON(returnInput)).toEqual(toJSON(test));
   });
 });

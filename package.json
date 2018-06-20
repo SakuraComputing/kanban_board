@@ -47,6 +47,7 @@
     "babel-plugin-transform-object-assign": "^6.3.13",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "cross-env": "5.1.6",
+    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.9.0",
     "immutability-helper": "^2.7.0",
     "raf": "^3.4.0",
