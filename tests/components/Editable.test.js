@@ -46,4 +46,9 @@ describe('Editable Component', () => {
     />;
     expect(toJSON(returnInput)).toEqual(toJSON(test));
   });
+  it('should display delete button when renderDelete is called', () => {
+    const returnDelButton = wrapper.instance().renderDelete();
+    const test = <button className="delete" onClick={onDelete}>x</button>;
+    expect(returnDelButton).toEqual(test);
+  })
 });
