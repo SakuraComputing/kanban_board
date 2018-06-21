@@ -4,7 +4,7 @@ exports[`Lanes Component should render the form correctly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <_default
+  Symbol(enzyme.__unrendered__): <Lanes
     lanes={
       Array [
         [MockFunction],
