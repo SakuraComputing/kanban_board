@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Editable extends React.Component {
+class Editable extends React.Component {
 
   renderEdit = () => {
     return <input type="text"
@@ -53,4 +54,14 @@ export default class Editable extends React.Component {
   }
 
 };
+
+Editable.propTypes = {
+  value: PropTypes.func,
+  onEdit: PropTypes.func,
+  onValueClick: PropTypes.func,
+  editing: PropTypes.func,
+  props: PropTypes.array
+};
+
+export default Editable;
 
