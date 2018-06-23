@@ -56,11 +56,15 @@ class Editable extends React.Component {
 };
 
 Editable.propTypes = {
-  value: PropTypes.func,
-  onEdit: PropTypes.func,
+  value: PropTypes.string,
+  editing: PropTypes.bool,
+  onEdit: PropTypes.func.isRequired,
   onValueClick: PropTypes.func,
-  editing: PropTypes.func,
-  props: PropTypes.array
+};
+Editable.defaultProps = {
+  value: '',
+  editing: false,
+  onEdit: () => {}
 };
 
 export default Editable;

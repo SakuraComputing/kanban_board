@@ -30,6 +30,10 @@ Notes.propTypes = {
   onEdit: PropTypes.func,
   onDelete: PropTypes.func
 };
+Notes.defaultProps = {
+  notes: [],
+  onEdit: () => {}
+};
 
 export default Notes;
 

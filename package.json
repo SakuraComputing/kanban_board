@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --hot --devtool eval-cheap-module-source-map",
     "clean": "rimraf dist",
     "production": "cross-env npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
-    "test": "jest",
+    "test": "jest --silent",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage"
   },

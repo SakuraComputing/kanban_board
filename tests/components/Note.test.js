@@ -1,10 +1,11 @@
 import React from 'react';
+import { DropTarget } from 'react-dnd';
 import { shallow } from 'enzyme';
 import Note from '../../app/components/Note';
 
 
 describe('Note Component', () => {
-  let wrapper;
+  let wrapper, id;
 
   beforeEach(() => {
     wrapper = shallow(<Note />);

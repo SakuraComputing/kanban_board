@@ -5,13 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <DragSource(DropTarget(Note))
-    connectDragSource={[Function]}
-    connectDropTarget={[Function]}
-    editing={[Function]}
-    id={[Function]}
-    isDragging={[Function]}
     onMove={[Function]}
-    props={[Function]}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

@@ -127,9 +127,17 @@ class Lane extends Component {
 }
 
 Lane.propTypes = {
+  lane: PropTypes.shape ({
+     id: PropTypes.string.isRequired,
+     editing: PropTypes.bool,
+     name: PropTypes.string,
+     notes: PropTypes.array
+  }).isRequired,
   connectDropTarget: PropTypes.func,
-  lane: PropTypes.array,
-  props: PropTypes.array
+};
+Lane.defaultProps = {
+  name: '',
+  notes: []
 };
 
 export default Lane;
