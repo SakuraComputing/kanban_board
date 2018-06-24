@@ -27,7 +27,8 @@
       "app/**/*.{js,jsx,ts,tsx}"
     ],
     "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/assetsTransformer.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/assetsTransformer.js",
+      "\\.(css|scss)$": "identity-obj-proxy"
     },
     "testMatch": [
       "**/?(*.)(spec|test).js?(x)"
@@ -49,6 +50,7 @@
     "cross-env": "5.1.6",
     "enzyme-to-json": "^3.3.4",
     "eslint": "^4.9.0",
+    "identity-obj-proxy": "^3.0.0",
     "immutability-helper": "^2.7.0",
     "raf": "^3.4.0",
     "react": "16.4.0",

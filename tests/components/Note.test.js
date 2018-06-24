@@ -18,4 +18,7 @@ describe('Note Component', () => {
   it('should render the form correctly', () => {
     expect(wrapper).toMatchSnapshot();
   });
+  it('should return id object when @DragSource is called', () => {
+    
+  });
 });
