@@ -14,6 +14,7 @@ ShallowWrapper {
     }
     onDelete={[MockFunction]}
     onEdit={[MockFunction]}
+    onMove={[Function]}
     onValueClick={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {

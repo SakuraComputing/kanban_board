@@ -20,7 +20,7 @@ describe('Editable Component', () => {
     onDelete = jest.fn();
     defaultValue = jest.fn();
     renderDelete = jest.fn();
-    ref = jest.fn();
+    // ref = jest.fn();
 
     wrapper = shallow(<Editable
       editing={editing}
@@ -28,7 +28,7 @@ describe('Editable Component', () => {
       onValueClick={onValueClick}
       onEdit={onEdit}
       onDelete={onDelete}
-      ref={ref}
+      // ref={ref}
     />);
     deleteButton = <button className="delete" onClick={onDelete}>x</button>;
   });
@@ -64,4 +64,9 @@ describe('Editable Component', () => {
     </div>;
     expect(toJSON(retValue)).toEqual(toJSON(test));
   });
+  // it('should return the selection start when data has been entered into the input box', () => {
+  //   // const text = "wibble";
+  //   const inputText = wrapper.instance().selectionStart;
+  //   expect(inputText).toBeTruthy();
+  // });
 });

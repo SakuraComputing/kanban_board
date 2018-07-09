@@ -1,10 +1,11 @@
 import React from 'react';
+import { DropTarget } from 'react-dnd';
 import { shallow } from 'enzyme';
 import Note from '../../app/components/Note';
 
 
 describe('Note Component', () => {
-  let wrapper;
+  let wrapper, id;
 
   beforeEach(() => {
     wrapper = shallow(<Note />);
@@ -16,5 +17,8 @@ describe('Note Component', () => {
 
   it('should render the form correctly', () => {
     expect(wrapper).toMatchSnapshot();
+  });
+  it('should return id object when @DragSource is called', () => {
+    
   });
 });

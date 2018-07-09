@@ -18,4 +18,4 @@ function main() {
   ReactDOM.render(<App />, app);
 
 }
-
+module.exports = main;

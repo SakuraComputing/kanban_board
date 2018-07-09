@@ -2,8 +2,9 @@ import React from 'react';
 import Editable from './Editable';
 import Note from './Note';
 import LaneActions from '../actions/LaneActions';
+import PropTypes from 'prop-types';
 
-export default ({notes, onValueClick, onEdit, onDelete}) => {
+const Notes = ({notes, onValueClick, onEdit, onDelete}) => {
   return (
     <ul className="notes">{notes.map(note =>
       <Note className="note" id={note.id} key={note.id}
@@ -21,4 +22,18 @@ export default ({notes, onValueClick, onEdit, onDelete}) => {
     )}
     </ul>
   );
-}
+};
+
+Notes.propTypes = {
+  notes: PropTypes.array,
+  onValueClick: PropTypes.func,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func
+};
+Notes.defaultProps = {
+  notes: [],
+  onEdit: () => {}
+};
+
+export default Notes;
+

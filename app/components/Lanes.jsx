@@ -1,7 +1,8 @@
 import React from 'react';
 import Lane from './Lane.jsx';
+import PropTypes from 'prop-types';
 
-export default ({lanes}) => {
+const Lanes = ({lanes}) => {
   return (
     <div className="lanes">{lanes.map(lane =>
         <Lane className="lane" key={lane.id} lane={lane}>
@@ -10,7 +11,16 @@ export default ({lanes}) => {
         </Lane>
       )}</div>
   );
-}
+};
+Lanes.propTypes = {
+  lanes: PropTypes.array
+};
+Lanes.defaultProps = {
+  lanes: []
+};
+export default Lanes;
+
+
 
 
 

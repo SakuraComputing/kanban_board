@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AltContainer from 'alt-container';
 import {DropTarget} from 'react-dnd';
+import PropTypes from 'prop-types';
 import ItemTypes from '../constants/itemTypes';
 import Notes from './Notes';
 import NoteActions from '../actions/NoteActions';
@@ -26,7 +27,7 @@ const noteTarget = {
 @DropTarget(ItemTypes.NOTE, noteTarget, (connect) => ({
   connectDropTarget: connect.dropTarget()
 }))
-export default class Lane extends Component {
+class Lane extends Component {
 
   editNote = (id, task) => {
     if(!task.trim()) {
@@ -124,6 +125,22 @@ export default class Lane extends Component {
     );
   }
 }
+
+Lane.propTypes = {
+  lane: PropTypes.shape ({
+     id: PropTypes.string.isRequired,
+     editing: PropTypes.bool,
+     name: PropTypes.string,
+     notes: PropTypes.array
+  }).isRequired,
+  connectDropTarget: PropTypes.func,
+};
+Lane.defaultProps = {
+  name: '',
+  notes: []
+};
+
+export default Lane;
 
 Lane.Header = class LaneHeader extends React.Component {
 
